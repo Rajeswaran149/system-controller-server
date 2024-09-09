@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
      ID: String,
      Name: String,
      Contact: String,
-     Occupation: String
+     Occupation: String,
+     status: { type: String, default: 'open' },
    });
 
    module.exports = mongoose.model('Electrician', ElectricianSchema);

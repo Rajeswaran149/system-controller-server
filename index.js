@@ -9,13 +9,14 @@ const complaintRoutes = require('./routes/complaints');
 require("dotenv").config();
 app.use(cors({origin:'*'}));
 app.use(bodyParser.json());
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(error => console.error('MongoDB connection error:', error));
 
     app.use('/api/electricians', electricianRoutes);
-    // app.use('/api/complaints', complaintRoutes);
+    app.use('/api/complaints', complaintRoutes);
     app.use('/', (req,res) => {
         res.send("server is running sucessfully")
     })
