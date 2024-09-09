@@ -24,7 +24,7 @@ router.post('/add', async (req, res) => {
       if (electrician) {
         complaint.assignedTo = electrician.ID;
         complaint.status = 'in-progress';
-        electrician.status = 'working';
+        electrician.status = 'Assigned';
         const updateStatusELectrician = await electrician.save();
         console.log(updateStatusELectrician)
       }
